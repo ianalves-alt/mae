@@ -1,0 +1,56 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.pilates {
+  font-size: 15rem;
+  font-weight: 901;
+  letter-spacing: -9px;
+}
+.top {
+  margin-bottom: -3rem;
+}
+.bottom {
+  font-size: 20px;
+  text-align: center;
+  max-width: 619px;
+  margin-top: -2.7rem;
+}
+.arrow {
+  position: relative;
+  top: 7.5rem;
+  animation: bouncePause 6s ease-in-out infinite;
+}
+@keyframes upDown {
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bouncePause {
+  0% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: translateY(-10px);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-10px);
+  }
+  20% {
+    transform: translateY(0);
+  }
+
+  /* Stay still until 100% (4 seconds idle) */
+  100% {
+    transform: translateY(0);
+  }
+}

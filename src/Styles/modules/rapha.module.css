@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+.container {
+  background-color: black;
+  position: relative;
+  background-image: url("/homem-e-mulher-fazendo-exercicio-no-reformador-de-pilates_126745-3658.jpg");
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+  z-index: 0;
+  margin-bottom: 20rem;
+  padding-bottom: 2rem;
+}
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.93);
+  z-index: 1;
+}
+.rapha,
+.flexContainer {
+  position: relative;
+  z-index: 2;
+}
+.rapha {
+  font-size: 2rem;
+  padding: 2rem;
+  font-weight: bold;
+}
+.text {
+  font-family: "Roboto Mono";
+  max-width: 70%;
+  text-align: center;
+  padding: 1rem;
+}
+.flexContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.raphaFoto {
+  border-radius: 200px;
+}

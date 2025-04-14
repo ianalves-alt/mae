@@ -1,0 +1,98 @@
+.container {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+
+.intro {
+  font-size: 5rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -4px;
+}
+
+.introText {
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.containerCards {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 5rem 1rem 0;
+  min-height: 100vh;
+}
+
+.rowCards {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  width: 300px;
+  height: 400px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform-origin: center;
+  transition:
+    flex 0.4s ease,
+    transform 0.4s ease,
+    filter 0.4s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.rowCards:hover .card {
+  flex: 0.5;
+  filter: brightness(0.9);
+  transform: scale(0.98);
+}
+
+.rowCards .card:hover {
+  flex: 1.5;
+  transform: scale(1);
+  filter: brightness(1);
+  z-index: 2;
+}
+
+.p {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.text {
+  width: 100%;
+  max-width: 50ch;
+  min-width: 20ch;
+}
+
+.tempo {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 3rem;
+}
+
+.cardTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.veja {
+  position: absolute;
+  right: 2rem;
+  text-align: right;
+  text-decoration: underline;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+.vejaC {
+  margin-bottom: 20rem;
+}

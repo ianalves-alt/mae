@@ -1,0 +1,178 @@
+.aprenda {
+  font-size: 5rem;
+  font-weight: bolder;
+  padding-left: 2rem;
+}
+.sobre {
+  position: relative;
+  bottom: 1rem;
+}
+.blobs {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.blob1,
+.blob2,
+.blob3,
+.blob4,
+.blob5,
+.blob6,
+.blob7 {
+  position: absolute;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.blob1 {
+  top: 15%;
+  left: -5%;
+}
+
+.blob2 {
+  top: 35%;
+  left: 20%;
+}
+
+.blob3 {
+  top: 55%;
+  left: 5%;
+}
+
+.blob4 {
+  top: 45%;
+  left: 45%;
+}
+
+.blob5 {
+  top: 10%;
+  left: 65%;
+}
+
+.blob6 {
+  top: 30%;
+  left: 90%;
+}
+
+.blob7 {
+  top: 60%;
+  left: 75%;
+}
+
+.blobs {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+}
+
+.blob {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Adjust these as needed */
+.blob1 {
+  top: 10%;
+  left: 5%;
+}
+.blob2 {
+  top: 40%;
+  left: 20%;
+}
+.blob3 {
+  top: 70%;
+  left: 10%;
+}
+.blob4 {
+  top: 25%;
+  left: 50%;
+}
+.blob5 {
+  top: 60%;
+  left: 65%;
+}
+.blob6 {
+  top: 35%;
+  left: 85%;
+}
+.blob7 {
+  top: 80%;
+  left: 40%;
+}
+@media (max-width: 1024px) {
+  .blob1 {
+    left: 0%;
+  }
+  .blob2 {
+    left: 15%;
+  }
+  .blob3 {
+    left: 10%;
+  }
+  .blob4 {
+    left: 40%;
+  }
+  .blob5 {
+    left: 60%;
+  }
+  .blob6 {
+    left: 85%;
+  }
+  .blob7 {
+    left: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .blobs {
+    height: auto;
+    padding-bottom: 100px;
+  }
+
+  .blob1 {
+    top: 5%;
+    left: 5%;
+  }
+  .blob2 {
+    top: 20%;
+    left: 15%;
+  }
+  .blob3 {
+    top: 40%;
+    left: 10%;
+  }
+  .blob4 {
+    top: 55%;
+    left: 35%;
+  }
+  .blob5 {
+    top: 10%;
+    left: 50%;
+  }
+  .blob6 {
+    top: 30%;
+    left: 70%;
+  }
+  .blob7 {
+    top: 70%;
+    left: 45%;
+  }
+}
+.entre {
+  text-align: right;
+  position: relative;
+  top: 7rem;
+  font-weight: bold;
+  margin-right: 2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}

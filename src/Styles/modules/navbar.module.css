@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.ul {
+  list-style-type: none;
+}
+.nav ul {
+  display: flex;
+}
+.nav ul li {
+  margin-inline: 2rem;
+  position: relative;
+  top: 5px;
+}
+.nav div {
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding-left: 1.5rem;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.container {
+  width: 60%;
+  position: fixed;
+  top: 2rem; /* distance from top */
+  left: 20%;
+  transform: translateX(-50%);
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  padding: 1.2rem;
+  border-radius: 25px;
+  background-color: #2a2a2a;
+  z-index: 9999; /* make sure it's on top */
+}
+.navHidden {
+  transform: translateY(-200%);
+  transition: transform 0.3s ease-in-out;
+}
+.navVisible {
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in-out;
+}
