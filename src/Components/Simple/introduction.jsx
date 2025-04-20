@@ -1,26 +1,111 @@
 import style from "../../Styles/modules/intro.module.css";
+import Image from "next/image";
+import { client } from "@/lib/sanity";
+import Link from "next/link";
 
-export default function Intro() {
-  const playsvg = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="icon icon-tabler icons-tabler-filled icon-tabler-player-play"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
-    </svg>
+async function getPosts({ type = "latest", limit = 10 } = {}) {
+  const query = `*[_type == "post"] {
+    _id,
+    title,
+    slug,
+    description,
+    publishedAt,
+    "author": author->name,
+    "categories": categories[]->{title,slug},
+    "mainImage": mainImage.asset->url
+  }`;
+
+  const allPosts = await client.fetch(query);
+
+  if (type === "random") {
+    const shuffled = allPosts.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, limit);
+  }
+
+  return allPosts
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, limit);
+}
+
+export default async function Intro() {
+  const postsRandom = await getPosts({ type: "random", limit: 10 });
+  const postsLatest = await getPosts({ type: "latest", limit: 10 });
+
+  const truncateAfterPeriod = (str) => {
+    if (typeof str !== "string") return "";
+    const periodIndex = str.indexOf(".");
+    if (periodIndex === -1) return str;
+    return str.slice(0, periodIndex) + "...";
+  };
+
+  const CardLatest = () => (
+    <div className={style.cardContainerL}>
+      <ul className={style.ulL}>
+        {postsLatest.map((post, key) => (
+          <li key={key} className={style.cardContainerliL}>
+            <div className={style.imageWrapperL}>
+              <Image
+                width={455}
+                height={306}
+                alt="picture of pilates"
+                src={post.mainImage}
+                className={style.imageL}
+              />
+              <div className={style.authorInfoL}>
+                {post.author} {new Date(post.publishedAt).toLocaleDateString()}
+              </div>
+            </div>
+            <div className={style.categoryL}>
+              <Link href={`/categories/${post.categories[0].slug.current}`}>
+                {post.categories[0].title}
+              </Link>
+            </div>
+            <h2 className={style.postTitleL}>{post.title}</h2>
+            <div className={style.descL}>
+              {truncateAfterPeriod(post.description)}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 
-  const Card = ({ title, time, text }) => (
-    <div className={style.card}>
-      <div className={style.cardTitle}>{title}</div>
-      <div className={style.tempo}>Tempo de leitura: {time}</div>
-      <div className={style.text}>{text}</div>
-      <div className={style.p}>{playsvg}</div>
+  const CardRandom = () => (
+    <div className={style.cardContainer}>
+      <ul className={style.ul}>
+        {postsRandom.map((post, index) => (
+          <li key={index} className={style.cardContainerli}>
+            <div className={style.imageWrapper}>
+              <Image
+                width={930}
+                height={618}
+                alt="picture of pilates"
+                src={post.mainImage}
+                className={style.mainImage}
+              />
+              <div className={style.authorInfo}>
+                {post.author}
+                <div className={style.circle}></div>
+                {new Date(post.publishedAt).toLocaleDateString()}
+              </div>
+              <h2 className={style.postTitle}>{post.title}</h2>
+              <div className={style.desc}>{post.description}</div>
+              <div className={style.flex}>
+                <button>Continue lendo</button>
+                <div>
+                  {post.categories.map((category, index) => (
+                    <span className={style.category} key={index}>
+                      <Link href={`/category/${category.slug.current}`}>
+                        {category.title}
+                      </Link>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 
@@ -30,83 +115,47 @@ export default function Intro() {
         <div className={style.intro}>
           Introduction
           <div className={style.introText}>
-            Read some of the hottest topics of later of pilates news of times
-          </div>
-        </div>
-
-        <div className={style.containerCards}>
-          {/* Row 1 */}
-          <div className={style.rowCards}>
-            <Card
-              title="Pilates funcional"
-              time="12min"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <Card
-              title="Importancia de Respirar"
-              time="15min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-          </div>
-          <div className={style.rowCards}>
-            <Card
-              title="Pilates funcional"
-              time="12min"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <Card
-              title="Importancia de Respirar"
-              time="15min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-          </div>
-          {/* Row 2 */}
-          <div className={style.rowCards}>
-            <Card
-              title="Pilates funcional"
-              time="12min"
-              text="Lorem Ipsum is simply dummy text of the printing and typesetting industry..."
-            />
-            <Card
-              title="Importancia de Respirar"
-              time="15min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
-            <Card
-              title="Mat Pilates"
-              time="12min"
-              text="Contrary to popular belief, Lorem ipsum is not simply random text..."
-            />
+            Read some of the hottest topics of pilates in recent times.
           </div>
         </div>
       </div>
+
+      <div className={style.contentF}>
+        <div>
+          <div className={style.containerCards}>
+            <CardRandom />
+            <CardRandom />
+          </div>
+          <div>
+            <CardLatest />
+            <CardLatest />
+          </div>
+        </div>
+
+        <div className={style.categoriesContainer}>
+          <h1 className={style.categoriesSticky}>
+            <div className={style.line}></div>Categorias
+            <div className={style.line}></div>
+          </h1>
+          <ul>
+            <li>🧘 Pilates</li>
+            <li>🪴 Pilates-para-iniciantes</li>
+            <li>🌀 Mobilidade</li>
+            <li>🎯 Força-do-core</li>
+            <li>🌿 Vida-saudável</li>
+            <li>🦵 Exercício-de-baixo-impacto</li>
+            <li>🛡️ Prevenção-de-lesões</li>
+            <li>🧍 Postura</li>
+            <li>🧘 Pilates-no-mat</li>
+            <li>🌬️ Respiração</li>
+          </ul>
+        </div>
+      </div>
+
       <div className={style.vejaC}>
-        <span className={style.veja}>Veja mais..</span>
+        <span className={style.veja}>
+          <Link href="/blog">Veja mais...</Link>
+        </span>
       </div>
     </>
   );

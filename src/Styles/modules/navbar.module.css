@@ -10,10 +10,12 @@
   position: relative;
   top: 5px;
 }
-.nav div {
+.Pilates {
   font-weight: 800;
   font-size: 1.5rem;
   padding-left: 1.5rem;
+  color: white;
+  text-decoration: none;
 }
 .nav {
   display: flex;
@@ -40,4 +42,123 @@
 .navVisible {
   transform: translateY(0%);
   transition: transform 0.3s ease-in-out;
+}
+.dropDownTrigger {
+  position: relative;
+  cursor: pointer;
+}
+.dropDownTrigger::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -50px;
+  right: 0px;
+  padding-top: 50px;
+}
+.dropDown {
+  position: absolute;
+  top: 3rem;
+  right: -175px;
+  height: 300px;
+  width: 59vw;
+  background-color: #242424;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+  z-index: 100;
+
+  justify-content: space-between;
+}
+.dropDown * {
+  color: white;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+
+    transform: translateY(10px);
+  }
+}
+.categoriesFlex {
+  background-color: #3f3f40;
+  border-radius: 20px;
+  padding: 1rem 2rem 3rem;
+}
+.categoriesFlex div {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color:;
+}
+.outras {
+  background-color: #2a2a2a;
+  font-size: 12px;
+  padding: 1rem 2rem 3rem;
+  border-radius: 20px;
+  max-width: 300px;
+}
+.mais {
+  flex: 1;
+}
+.ulOutras {
+}
+.ulOutras,
+.ulMais {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ulMais li,
+.ulOutras li {
+  list-style-type: none;
+}
+.ulOutras li span,
+.span2 {
+  position: relative;
+  top: 2px;
+  margin-left: 2px;
+  opacity: 0;
+  transform: translateX(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  display: inline-block;
+}
+
+.ulOutras li:hover span,
+.ulMais li:hover .span2 {
+  opacity: 1;
+  transform: translateX(8px);
+}
+.ulMais li:hover,
+.ulOutras li:hover {
+  color: rgba(100, 100, 100, 0.9);
+}
+.ulOutras li {
+  margin-bottom: 1rem;
+}
+.ulOutras:nth-child(1) {
+  margin-top: 1rem;
+}
+
+.ulMais li {
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  padding: 0.2rem;
+}
+.maisDesc {
+  display: block;
+  text-align: left;
+  max-width: 200px;
+
+  padding: 7px;
+  font-size: 12px;
+  font-weight: normal;
 }

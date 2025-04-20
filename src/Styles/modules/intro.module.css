@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
 .container {
   margin-top: 10rem;
   margin-bottom: 3rem;
@@ -93,6 +95,286 @@
   font-size: 1.5rem;
   margin-top: 2rem;
 }
+
 .vejaC {
   margin-bottom: 20rem;
+}
+
+.cardContainerli {
+  margin: 2rem;
+}
+
+.linkContainer {
+  text-decoration: none;
+  color: black;
+}
+
+.containerContainer {
+  width: 70%;
+}
+
+.cardContainerli * {
+  text-decoration: none;
+  text-align: center;
+}
+
+.imageWrapper {
+  position: relative;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+  padding-bottom: 2rem;
+}
+
+.ul {
+  list-style-type: none;
+}
+
+.circle {
+  width: 7px;
+  height: 7px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  margin: 0 1rem;
+  position: relative;
+  bottom: 0.15rem;
+}
+
+.authorInfo {
+  margin: 1rem auto 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.authorInfo * {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.postTitle {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex button {
+  padding: 0.5rem 2rem;
+  background: none;
+  border: 1px solid orange;
+  font-family: "Roboto";
+}
+
+.category {
+  position: relative;
+  top: 0.3rem;
+  margin: 0 0.5rem;
+  color: white;
+  background-color: black;
+  padding: 0.5rem 1.5rem;
+  border-radius: 13px;
+  font-size: 0.8rem;
+}
+
+.category:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.desc {
+  max-width: 910px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  .intro {
+    font-size: 3rem;
+    letter-spacing: -2px;
+  }
+
+  .introText {
+    font-size: 10px;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .containerCards {
+    gap: 1.5rem;
+  }
+
+  .rowCards {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    min-width: unset;
+  }
+
+  .cardTitle {
+    font-size: 1.8rem;
+  }
+
+  .veja {
+    font-size: 1.2rem;
+    right: 1rem;
+  }
+
+  .postTitle {
+    font-size: 1.5rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+
+  .authorInfo {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .category {
+    padding: 0.3rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .flex button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .containerContainer {
+    width: 90%;
+  }
+
+  .imageWrapper {
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+}
+.ulL {
+  display: flex;
+  margin: 2rem;
+  max-width: 910px;
+
+  flex-wrap: wrap;
+  gap: 5rem;
+  list-style-type: none;
+  justify-content: center;
+}
+
+.ulL * {
+  text-decoration: none;
+  color: black;
+  margin: 0 auto;
+  text-align: center;
+}
+.descL {
+  font-size: 0.8rem;
+}
+.categoryL {
+  margin: 1rem auto 0.5rem;
+}
+.postTitleL {
+  margin-bottom: 1rem;
+}
+.postTitleL:hover {
+  color: #ff6900;
+}
+.imageWrapperL {
+  position: relative;
+  overflow: hidden;
+}
+.imageL {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cardContainerliL {
+  width: calc((910px - 5rem) / 2); /* Two cards per row */
+}
+.authorInfoL {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 16px; /* more padding for edge spacing */
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.imageWrapperL:hover .authorInfoL {
+  opacity: 1;
+  transform: translateY(0);
+}
+.authorInfoL * {
+}
+.categoriesSticky {
+  top: 10rem;
+}
+.contentF {
+  display: flex;
+}
+.categoriesContainer {
+  margin-top: 6rem;
+}
+.categoriesContainer * {
+  position: sticky;
+}
+.line {
+  width: 9rem;
+  height: 1px;
+  background-color: black;
+  display: inline-block;
+  position: relative;
+  margin-inline: 1rem;
+  bottom: 0.6rem;
+}
+.categoriesContainer ul {
+  position: sticky;
+  top: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.categoriesContainer ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  list-style: none;
+  display: none;
+}
+
+.categoriesContainer ul li {
+  background-color: black;
+  color: white;
+  border-radius: 13px;
+  font-size: 1.1rem;
+  text-align: center;
 }

@@ -7,4 +7,5 @@
 body {
   background-color: #fcf8f3;
   font-family: "Inter";
+  min-height: 100vh;
 }
