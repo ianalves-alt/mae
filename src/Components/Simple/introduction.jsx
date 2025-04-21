@@ -2,6 +2,8 @@ import style from "../../Styles/modules/intro.module.css";
 import Image from "next/image";
 import { client } from "@/lib/sanity";
 import Link from "next/link";
+import CardLatest from "./Card.jsx";
+import CardRandom from "./CardRandom.jsx";
 
 async function getPosts({ type = "latest", limit = 10 } = {}) {
   const query = `*[_type == "post"] {
@@ -30,19 +32,41 @@ async function getPosts({ type = "latest", limit = 10 } = {}) {
 export default async function Intro() {
   const postsRandom = await getPosts({ type: "random", limit: 10 });
   const postsLatest = await getPosts({ type: "latest", limit: 10 });
-
   const truncateAfterPeriod = (str) => {
     if (typeof str !== "string") return "";
     const periodIndex = str.indexOf(".");
     if (periodIndex === -1) return str;
     return str.slice(0, periodIndex) + "...";
   };
-
-  const CardLatest = () => (
+  const SVG = () => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="13"
+        height="13"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="lucide lucide-arrow-right-icon lucide-arrow-right"
+      >
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
+      </svg>
+    );
+  };
+  /*const CardLatest = () => (
     <div className={style.cardContainerL}>
       <ul className={style.ulL}>
         {postsLatest.map((post, key) => (
-          <li key={key} className={style.cardContainerliL}>
+          <li
+            key={post._id}
+            className={style.cardContainerliL}
+            onClick={() => router.push(`/blog/${post.slug.current}`)}
+            style={{ cursor: "pointer" }}
+          >
             <div className={style.imageWrapperL}>
               <Image
                 width={455}
@@ -55,7 +79,10 @@ export default async function Intro() {
                 {post.author} {new Date(post.publishedAt).toLocaleDateString()}
               </div>
             </div>
-            <div className={style.categoryL}>
+            <div
+              className={style.categoryL}
+              onClick={(e) => e.stopPropagation()} // prevent parent click
+            >
               <Link href={`/categories/${post.categories[0].slug.current}`}>
                 {post.categories[0].title}
               </Link>
@@ -70,44 +97,7 @@ export default async function Intro() {
     </div>
   );
 
-  const CardRandom = () => (
-    <div className={style.cardContainer}>
-      <ul className={style.ul}>
-        {postsRandom.map((post, index) => (
-          <li key={index} className={style.cardContainerli}>
-            <div className={style.imageWrapper}>
-              <Image
-                width={930}
-                height={618}
-                alt="picture of pilates"
-                src={post.mainImage}
-                className={style.mainImage}
-              />
-              <div className={style.authorInfo}>
-                {post.author}
-                <div className={style.circle}></div>
-                {new Date(post.publishedAt).toLocaleDateString()}
-              </div>
-              <h2 className={style.postTitle}>{post.title}</h2>
-              <div className={style.desc}>{post.description}</div>
-              <div className={style.flex}>
-                <button>Continue lendo</button>
-                <div>
-                  {post.categories.map((category, index) => (
-                    <span className={style.category} key={index}>
-                      <Link href={`/category/${category.slug.current}`}>
-                        {category.title}
-                      </Link>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  */
 
   return (
     <>
@@ -123,32 +113,111 @@ export default async function Intro() {
       <div className={style.contentF}>
         <div>
           <div className={style.containerCards}>
-            <CardRandom />
-            <CardRandom />
+            <CardRandom postFetch={postsRandom} />
+            <CardRandom postFetch={postsRandom} />
           </div>
+
           <div>
-            <CardLatest />
-            <CardLatest />
+            <CardLatest postFetch={postsLatest} />
+            <CardLatest postFetch={postsLatest} />
           </div>
         </div>
 
         <div className={style.categoriesContainer}>
-          <h1 className={style.categoriesSticky}>
-            <div className={style.line}></div>Categorias
-            <div className={style.line}></div>
-          </h1>
-          <ul>
-            <li>🧘 Pilates</li>
-            <li>🪴 Pilates-para-iniciantes</li>
-            <li>🌀 Mobilidade</li>
-            <li>🎯 Força-do-core</li>
-            <li>🌿 Vida-saudável</li>
-            <li>🦵 Exercício-de-baixo-impacto</li>
-            <li>🛡️ Prevenção-de-lesões</li>
-            <li>🧍 Postura</li>
-            <li>🧘 Pilates-no-mat</li>
-            <li>🌬️ Respiração</li>
-          </ul>
+          <div className={style.stickyContainer}>
+            <h1 className={style.categoriesSticky}>
+              <div className={style.line}></div>Categorias
+              <div className={style.line}></div>
+            </h1>
+            <ul>
+              <li>
+                <Link href="/category/pilates" className={style.link2}>
+                  🧘 Pilates
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/category/pilates-para-iniciantes"
+                  className={style.link2}
+                >
+                  🪴 Pilates-para-iniciantes
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/mobilidade" className={style.link2}>
+                  🌀 Mobilidade
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/forca-do-core" className={style.link2}>
+                  🎯 Força-do-core
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/vida-saudavel" className={style.link2}>
+                  🌿 Vida-saudável
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/category/exercicio-de-baixo-impacto"
+                  className={style.link2}
+                >
+                  🦵 Exercício-baixo-impacto
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/forca-do-core" className={style.link2}>
+                  🛡️ Prevenção-de-lesões
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/postura" className={style.link2}>
+                  🧍 Postura
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/pilates-no-mat" className={style.link2}>
+                  🧘 Pilates-no-mat
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/category/respiracao" className={style.link2}>
+                  🌬️ Respiração
+                  <span>
+                    <SVG />
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 

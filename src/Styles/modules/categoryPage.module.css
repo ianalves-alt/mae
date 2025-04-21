@@ -1,0 +1,123 @@
+.listContainer {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  margin-top: 5rem;
+}
+
+.categoryLink {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.categoryLink:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.active {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #0070f3;
+}
+
+.postCard {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+}
+
+.postImgContainer {
+  overflow: hidden;
+}
+
+.postImage {
+  width: 100%;
+  object-fit: cover;
+}
+
+.postContent {
+  padding: 16px;
+}
+
+.postContent h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.postContent p {
+  color: #555;
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+
+.postMeta {
+  font-size: 13px;
+  color: #999;
+}
+.postsC {
+  flex: 1;
+  margin-top: 10rem;
+}
+.postsC h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.postsC:nth-child(2) {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  max-width: 70%;
+  margin-bottom: 5rem;
+}
+
+.postCard * {
+  text-decoration: none;
+  text-align: center;
+}
+.postCard {
+  width: calc((910px -5rem) . 2);
+}
+.postTitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  display: flex;
+}
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  margin-bottom: 4rem;
+}
+.authorInfo {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.cardsC {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+.link * {
+  max-width: 500px;
+}
+.link:hover .postTitle {
+  transform: translateY(-8px);
+}
+.postTitle {
+  transition: transform 0.2s ease;
+}

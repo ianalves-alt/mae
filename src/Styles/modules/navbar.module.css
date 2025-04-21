@@ -58,7 +58,7 @@
 .dropDown {
   position: absolute;
   top: 3rem;
-  right: -175px;
+  left: 200px;
   height: 300px;
   width: 59vw;
   background-color: #242424;
@@ -136,8 +136,8 @@
   opacity: 1;
   transform: translateX(8px);
 }
-.ulMais li:hover,
-.ulOutras li:hover {
+.link2:hover,
+.link2:hover {
   color: rgba(100, 100, 100, 0.9);
 }
 .ulOutras li {
@@ -161,4 +161,33 @@
   padding: 7px;
   font-size: 12px;
   font-weight: normal;
+}
+.link,
+.link2 {
+  text-decoration: none;
+  color: white;
+}
+
+.arrow {
+  padding: 5px;
+  transition: transform linear 5s;
+}
+
+.arrow {
+  display: inline-block;
+  opacity: 1;
+  vertical-align: top;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
+  position: relative;
+  top: -3px;
+}
+
+.dropDownTrigger:hover .arrow {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+.dropDownTrigger:hover .arrow {
+  transform: rotate(90deg);
 }

@@ -26,62 +26,6 @@
   min-height: 100vh;
 }
 
-.rowCards {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.card {
-  flex: 1;
-  min-width: 250px;
-  width: 300px;
-  height: 400px;
-  padding: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transform-origin: center;
-  transition:
-    flex 0.4s ease,
-    transform 0.4s ease,
-    filter 0.4s ease;
-  cursor: pointer;
-  position: relative;
-}
-
-.rowCards:hover .card {
-  flex: 0.5;
-  filter: brightness(0.9);
-  transform: scale(0.98);
-}
-
-.rowCards .card:hover {
-  flex: 1.5;
-  transform: scale(1);
-  filter: brightness(1);
-  z-index: 2;
-}
-
-.p {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-}
-
-.text {
-  width: 100%;
-  max-width: 50ch;
-  min-width: 20ch;
-}
-
-.tempo {
-  color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 3rem;
-}
-
 .cardTitle {
   font-size: 2.5rem;
   font-weight: bold;
@@ -290,9 +234,6 @@
 .postTitleL {
   margin-bottom: 1rem;
 }
-.postTitleL:hover {
-  color: #ff6900;
-}
 .imageWrapperL {
   position: relative;
   overflow: hidden;
@@ -337,11 +278,12 @@
 .contentF {
   display: flex;
 }
-.categoriesContainer {
-  margin-top: 6rem;
+.stickyContainer {
+  position: sticky;
+  top: 6rem;
+  right: 0;
 }
 .categoriesContainer * {
-  position: sticky;
 }
 .line {
   width: 9rem;
@@ -353,28 +295,72 @@
   bottom: 0.6rem;
 }
 .categoriesContainer ul {
-  position: sticky;
-  top: 15rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
 }
 
 .categoriesContainer ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
   padding: 0;
-  margin: 0 auto;
-  max-width: 500px;
+  margin: 2rem auto 0rem;
+  max-width: 260px;
   list-style: none;
-  display: none;
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  right: 8px;
 }
 
 .categoriesContainer ul li {
-  background-color: black;
-  color: white;
-  border-radius: 13px;
   font-size: 1.1rem;
   text-align: center;
+  width: 300px;
+}
+.category a {
+  color: white;
+}
+.cardContainerliL:hover .postTitleL {
+  transform: translateY(-8px);
+}
+.postTitleL {
+  transition: transform 0.2s ease;
+}
+.authorInfo {
+  margin: 1.5rem auto;
+}
+.desc {
+  margin-bottom: 3.5rem;
+}
+.link2 {
+  color: black;
+  text-decoration: none;
+}
+
+.link2 span {
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.link2:hover span {
+  opacity: 1;
+  transform: translateX(5px);
+}
+.link2 span {
+  position: relative;
+  top: 2px;
+  margin-left: 2px;
+  opacity: 0;
+  transform: translateX(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  display: inline-block;
+}
+.link2:hover,
+.link2:hover {
+  color: rgba(100, 100, 100, 0.9);
+}
+
+.categoriesContainer {
+  margin-top: 7rem;
 }

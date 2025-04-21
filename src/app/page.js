@@ -1,7 +1,6 @@
 import Hero from "../Components/Simple/hero.jsx";
 import Intro from "../Components/Simple/introduction.jsx";
 import Rapha from "../Components/Simple/Rapha.jsx";
-import Aprenda from "../Components/Simple/Aprenda.jsx";
 import Footer from "../Components/Simple/footer.jsx";
 import "../Styles/global.css";
 export default function Page() {
@@ -13,7 +12,6 @@ export default function Page() {
       <div>
         <Intro />
         <Rapha />
-        <Aprenda />
       </div>
     </>
   );

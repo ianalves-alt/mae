@@ -45,6 +45,9 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  const SVGTwo = () => {
+    return <></>;
+  };
   return (
     <div
       className={`${style.container} ${
@@ -53,19 +56,40 @@ export default function Navbar() {
     >
       <nav className={style.nav}>
         <div>
-          <Link className={style.Pilates} href="/">
+          <Link className={`${style.Pilates} ${style.link}`} href="/">
             Pilates
           </Link>
         </div>
         <ul className={style.ul}>
-          <li>Inicio</li>
+          <li>
+            <Link className={style.link} href="/">
+              Inicio
+            </Link>
+          </li>
           <li>Sobre</li>
           <li
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             className={style.dropDownTrigger}
           >
-            Categorias
+            <Link href={`/category/pilates`} className={style.link}>
+              Categorias
+              <span className={style.arrow}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  className="lucide lucide-chevron-right-icon lucide-chevron-right"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </span>
+            </Link>
             {isHovering && (
               <div
                 className={style.dropDown}
@@ -77,40 +101,67 @@ export default function Navbar() {
                   <div>
                     <ul className={style.ulOutras}>
                       <li>
-                        🌀Mobilidade
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link
+                          href="/category/mobilidade"
+                          className={style.link2}
+                        >
+                          🌀Mobilidade
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                       <li>
-                        🎯Força-do-core
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link
+                          href="/category/forca-do-core"
+                          className={style.link2}
+                        >
+                          🎯Força-do-core
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                       <li>
-                        🌿Vida-saudável
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link
+                          href="/category/vida-saudavel"
+                          className={style.link2}
+                        >
+                          🌿Vida-saudável
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                       <li>
-                        🌬️Respiração
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link
+                          href="/category/respiracao"
+                          className={style.link2}
+                        >
+                          🌬️Respiração
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                       <li>
-                        🪑Postura
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link href="/category/postura" className={style.link2}>
+                          🪑Postura
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                       <li>
-                        🧘Pilates-no-mat
-                        <span>
-                          <SVG />
-                        </span>
+                        <Link
+                          href="/category/pilates-no-mat"
+                          className={style.link2}
+                        >
+                          🧘Pilates-no-mat
+                          <span>
+                            <SVG />
+                          </span>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -120,52 +171,68 @@ export default function Navbar() {
                   <h2>Mais relevantes</h2>
                   <ul className={style.ulMais}>
                     <li>
-                      🧘‍♀️Pilates{" "}
-                      <span className={style.span2}>
-                        <SVG />
-                      </span>
-                      <span className={style.maisDesc}>
-                        O Pilates é um método de condicionamento físico que
-                        foca...
-                      </span>
+                      <Link href="/category/pilates" className={style.link2}>
+                        🧘‍♀️Pilates{" "}
+                        <span className={style.span2}>
+                          <SVG />
+                        </span>
+                        <span className={style.maisDesc}>
+                          O Pilates é um método de condicionamento físico que
+                          foca...
+                        </span>
+                      </Link>
                     </li>
                     <li>
-                      🧩Pilates-para-iniciantes{" "}
-                      <span className={style.span2}>
-                        <SVG />
-                      </span>
-                      <span className={style.maisDesc}>
-                        Essa tag reúne conteúdos pensados pra quem está dando os
-                        primeiros passos no Pilates.{" "}
-                      </span>
+                      <Link
+                        href="/category/pilates-para-iniciantes"
+                        className={style.link2}
+                      >
+                        🧩Pilates-para-iniciantes{" "}
+                        <span className={style.span2}>
+                          <SVG />
+                        </span>
+                        <span className={style.maisDesc}>
+                          Essa tag reúne conteúdos pensados pra quem está dando
+                          os primeiros passos no Pilates.{" "}
+                        </span>
+                      </Link>
                     </li>
                     <li>
-                      🦶Baixo-impacto{" "}
-                      <span className={style.span2}>
-                        <SVG />
-                      </span>
-                      <span className={style.maisDesc}>
-                        O Pilates é conhecido por ser um exercício de baixo
-                        impacto...
-                      </span>
+                      <Link
+                        href="/category/baixo-impacto"
+                        className={style.link2}
+                      >
+                        🦶Baixo-impacto{" "}
+                        <span className={style.span2}>
+                          <SVG />
+                        </span>
+                        <span className={style.maisDesc}>
+                          O Pilates é conhecido por ser um exercício de baixo
+                          impacto...
+                        </span>
+                      </Link>
                     </li>
 
                     <li>
-                      🛡️Prevenção-de-lesões{" "}
-                      <span className={style.span2}>
-                        <SVG />
-                      </span>
-                      <span className={style.maisDesc}>
-                        Essa tag foca em como o Pilates pode ser usado pra
-                        fortalecer áreas frágeis...
-                      </span>
+                      <Link
+                        href="/category/prevencao-de-lesoes"
+                        className={style.link2}
+                      >
+                        🛡️Prevenção-de-lesões{" "}
+                        <span className={style.span2}>
+                          <SVG />
+                        </span>
+                        <span className={style.maisDesc}>
+                          Essa tag foca em como o Pilates pode ser usado pra
+                          fortalecer áreas frágeis...
+                        </span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
               </div>
             )}
           </li>
-          <li>Sections</li>
         </ul>
       </nav>
     </div>
