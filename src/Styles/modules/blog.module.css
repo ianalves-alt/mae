@@ -159,6 +159,7 @@ html {
   display: flex;
   gap: 2rem;
   flex: 0 0 75%;
+  border-bottom: 1px solid black;
 }
 .content {
   max-width: 50%;
@@ -190,4 +191,12 @@ html {
 }
 .p {
   margin-bottom: 2rem;
+}
+.relatedContainer {
+  margin: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.relatedContainer h2:nth-child(1) {
+  font-size: 3rem;
+  margin: 2rem 2rem 4rem;
 }

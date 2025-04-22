@@ -57,6 +57,7 @@
 }
 .dropDown {
   position: absolute;
+  opacity: 0 !important;
   top: 3rem;
   left: 200px;
   height: 300px;

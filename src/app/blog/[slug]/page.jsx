@@ -1,8 +1,13 @@
 import { client } from "@/lib/sanity";
+import { getPostWithRelated } from "@/lib/queries.js";
+
 import style from "../../../Styles/modules/blog.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
+import PostCard from "@/Components/Simple/PostCard";
+import styles from "@/Styles/modules/categoryPage.module.css";
+
 async function getPost(slug) {
   const query = `*[_type == "post" && slug.current == $slug][0]{
     title,
@@ -27,11 +32,15 @@ function generateTOC(body) {
       };
     });
 }
+
 export default async function PostPage({ params }) {
   const ParamnsAwait = await params;
-  const post = await getPost(ParamnsAwait.slug);
-  if (!post) return <div>Post not found</div>;
-  const toc = generateTOC(post.body);
+  const posts = await getPost(ParamnsAwait.slug);
+  if (!posts) return <div>Post not found</div>;
+  const toc = generateTOC(posts.body);
+  const { slug } = params;
+
+  const { post, related } = await getPostWithRelated(slug);
   const myComponents = {
     block: {
       h1: ({ children }) => (
@@ -73,24 +82,24 @@ export default async function PostPage({ params }) {
         <header>
           <div className={style.flexContainer}>
             <div>
-              {post.categories.map((element, index) => (
+              {posts.categories.map((element, index) => (
                 <span className={style.category} key={index}>
                   {element}
                 </span>
               ))}
             </div>
             <div className={style.info}>
-              Por {post.author}{" "}
-              <div>on {new Date(post.publishedAt).toLocaleDateString()}</div>
+              Por {posts.author}{" "}
+              <div>on {new Date(posts.publishedAt).toLocaleDateString()}</div>
             </div>
           </div>
-          <h1 className={style.title}>{post.title}</h1>
+          <h1 className={style.title}>{posts.title}</h1>
           <div>
             <Image
               width={930}
               height={618}
               alt="Picture of pilates"
-              src={post.mainImage}
+              src={posts.mainImage}
               className={style.mainImage}
             />
           </div>
@@ -118,6 +127,16 @@ export default async function PostPage({ params }) {
           <PortableText value={post.body} components={myComponents} />
         </div>
       </div>
+      {related.length > 0 && (
+        <div className={style.relatedContainer}>
+          <h2>Você pode se interessar</h2>
+          <div className={styles.cardsC}>
+            {related.map((p) => (
+              <PostCard key={p._id} post={p} />
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }

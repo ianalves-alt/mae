@@ -118,6 +118,7 @@ export default async function Intro() {
           </div>
 
           <div>
+            <h2 className={style.recent}>Mais Recentes</h2>
             <CardLatest postFetch={postsLatest} />
             <CardLatest postFetch={postsLatest} />
           </div>

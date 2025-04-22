@@ -41,3 +41,47 @@ export async function getCategoryWithPosts(slug, limit = 10) {
     posts,
   };
 }
+
+export async function getPostWithRelated(slug) {
+  const postQuery = `
+    *[_type == "post" && slug.current == $slug][0]{
+      _id,
+      title,
+      body,
+      categories[]->{
+        _id,
+        title
+      }
+    }
+  `;
+  const post = await client.fetch(postQuery, { slug });
+
+  if (!post || !post.categories) return { post: null, related: [] };
+
+  const categoryIds = post.categories.map((c) => c._id);
+
+  const relatedQuery = `
+    *[_type == "post" && references($categoryIds) && slug.current != $slug] {
+      _id,
+      title,
+      slug,
+      "mainImage": mainImage.asset->url,
+      publishedAt,
+      description,
+      categories[]->{
+        _id,
+        title
+      }
+    }
+  `;
+
+  const pool = await client.fetch(relatedQuery, {
+    categoryIds,
+    slug,
+  });
+
+  const shuffled = pool.sort(() => 0.5 - Math.random());
+  const related = shuffled.slice(0, 10);
+
+  return { post, related };
+}
