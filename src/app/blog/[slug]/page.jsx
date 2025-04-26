@@ -1,5 +1,6 @@
 import { client } from "@/lib/sanity";
 import { getPostWithRelated } from "@/lib/queries.js";
+import ShareButtons from "@/Components/Simple/Share";
 
 import style from "../../../Styles/modules/blog.module.css";
 import Image from "next/image";
@@ -15,7 +16,9 @@ async function getPost(slug) {
     publishedAt,
     "author": author->name,
     "categories": categories[]->title,
-    "mainImage": mainImage.asset->url
+    "mainImage": mainImage.asset->url,
+description
+
   }`;
   return await client.fetch(query, { slug });
 }
@@ -38,7 +41,7 @@ export default async function PostPage({ params }) {
   const posts = await getPost(ParamnsAwait.slug);
   if (!posts) return <div>Post not found</div>;
   const toc = generateTOC(posts.body);
-  const { slug } = params;
+  const { slug } = ParamnsAwait;
 
   const { post, related } = await getPostWithRelated(slug);
   const myComponents = {
@@ -104,7 +107,6 @@ export default async function PostPage({ params }) {
             />
           </div>
         </header>
-        {/* TOC Section */}
       </div>
 
       <div className={style.br}></div>
@@ -125,15 +127,22 @@ export default async function PostPage({ params }) {
         </nav>
         <div className={style.content}>
           <PortableText value={post.body} components={myComponents} />
+          <ShareButtons title={post.title} slug={post.slug}></ShareButtons>
         </div>
       </div>
       {related.length > 0 && (
         <div className={style.relatedContainer}>
+          <div className={style.flex}>
+            <div className={style.br}></div>
+          </div>
           <h2>Você pode se interessar</h2>
           <div className={styles.cardsC}>
             {related.map((p) => (
               <PostCard key={p._id} post={p} />
             ))}
+          </div>
+          <div className={style.flex}>
+            <div className={style.br}></div>
           </div>
         </div>
       )}

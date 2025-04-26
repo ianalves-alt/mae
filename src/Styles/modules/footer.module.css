@@ -45,3 +45,8 @@
   margin-bottom: 0.5rem;
   white-space: nowrap;
 }
+@media (max-width: 650px) {
+  .wrapper {
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+.C {
+  position: relative;
+  min-height: 100vh; /* ensure it fills the viewport */
+  background-color: #fafafa; /* match your page background */
+}
+
+.C::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1000px; /* larger circle */
+  height: 1000px;
+  border-radius: 50%;
+  border: 4px solid rgba(149, 157, 165, 1); /* thin gray outline */
+  transform: translate(-50%, -50%);
+  filter: blur(20px); /* heavy blur for faded stroke */
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}

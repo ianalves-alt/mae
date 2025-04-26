@@ -116,9 +116,6 @@
 }
 
 /* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
 
 .wrapper {
   display: flex;
@@ -159,7 +156,7 @@ html {
   display: flex;
   gap: 2rem;
   flex: 0 0 75%;
-  border-bottom: 1px solid black;
+  padding-bottom: 7rem;
 }
 .content {
   max-width: 50%;
@@ -194,9 +191,21 @@ html {
 }
 .relatedContainer {
   margin: 0.5rem;
-  border-bottom: 1px solid black;
+  margin-top: 10rem;
 }
-.relatedContainer h2:nth-child(1) {
+.relatedContainer h2:nth-child(2) {
   font-size: 3rem;
   margin: 2rem 2rem 4rem;
+}
+.flex {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.br {
+  width: 50%;
+  height: 1px;
+  background-color: black;
 }

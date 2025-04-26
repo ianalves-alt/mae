@@ -1,5 +1,6 @@
 .container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,5 +53,54 @@
   /* Stay still until 100% (4 seconds idle) */
   100% {
     transform: translateY(0);
+  }
+}
+@media (max-width: 750px) {
+  .pilates {
+    font-size: 12rem;
+  }
+  .bottom {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 640px) {
+  .pilates {
+    font-size: 9rem;
+  }
+  .bottom {
+    font-size: 0.8rem;
+    margin-top: -2rem;
+    max-width: 450px;
+  }
+  .top {
+    margin-bottom: -2rem;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 443px) {
+  .pilates {
+    font-size: 8.1rem;
+  }
+  .bottom {
+    font-size: 0.7rem;
+    margin-top: -1rem;
+    max-width: 300px;
+  }
+  .top {
+    margin-bottom: -1.5rem;
+    font-size: 0.5rem;
+  }
+  .container {
+    min-height: 80vh;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 360px) {
+  .pilates {
+    font-size: 6.8rem;
+  }
+  .bottom {
+    font-size: 0.6rem;
   }
 }

@@ -32,7 +32,7 @@ export default function CardRandom({ postFetch }) {
                 />
                 <div className={style.authorInfo}>
                   {post.author}
-                  <div className={style.circle}></div>
+                  <span className={style.dot}>•</span>
                   {new Date(post.publishedAt).toLocaleDateString()}
                 </div>
                 <h2 className={style.postTitle}>{post.title}</h2>
@@ -41,11 +41,16 @@ export default function CardRandom({ postFetch }) {
                   <button>Continue lendo</button>
                   <div>
                     {post.categories.map((category, index) => (
-                      <span className={style.category} key={index}>
-                        <Link href={`/category/${category.slug.current}`}>
+                      <Link
+                        key={index}
+                        href={`/category/${category.slug.current}`}
+                        className={style.linkCategory}
+                      >
+                        <span className={style.category}>
+                          {" "}
                           {category.title}
-                        </Link>
-                      </span>
+                        </span>
+                      </Link>
                     ))}
                   </div>
                 </div>

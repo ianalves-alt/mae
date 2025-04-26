@@ -3,6 +3,7 @@ import Intro from "../Components/Simple/introduction.jsx";
 import Rapha from "../Components/Simple/Rapha.jsx";
 import Footer from "../Components/Simple/footer.jsx";
 import "../Styles/global.css";
+import styles from "../Styles/modules/background.module.css";
 export default function Page() {
   return (
     <>

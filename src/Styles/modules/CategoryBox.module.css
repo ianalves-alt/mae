@@ -1,55 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-.ul {
-  list-style-type: none;
-}
-.nav ul {
-  display: flex;
-}
-.nav ul li {
-  margin-inline: 2rem;
-  position: relative;
-  top: 5px;
-}
-.Pilates {
-  font-weight: 800;
-  font-size: 1.5rem;
-  padding-left: 1.5rem;
-  color: white;
-  text-decoration: none;
-}
-.nav {
-  display: flex;
-  justify-content: space-between;
-  color: white;
-}
-.container {
-  width: 60%;
-  position: fixed;
-  top: 2rem; /* distance from top */
-  left: 20%;
-  transform: translateX(-50%);
-  font-family: "Inter", sans-serif;
-  text-align: center;
-  padding: 1.2rem;
-  border-radius: 25px;
-  background-color: #2a2a2a;
-  z-index: 9999; /* make sure it's on top */
-}
-.navHidden {
-  transform: translateY(-200%);
-  transition: transform 0.3s ease-in-out;
-}
-.navVisible {
-  transform: translateY(0%);
-  transition: transform 0.3s ease-in-out;
-}
 .dropDownTrigger {
   position: relative;
   cursor: pointer;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  right: 2.7rem;
 }
-
+.categoryTitle {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
 .dropDown {
-  position: absolute;
   height: 300px;
   width: 59vw;
   background-color: #242424;
@@ -59,7 +24,7 @@
   display: flex;
   animation: fadeIn 0.3s ease forwards;
   z-index: 100;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .dropDown * {
   color: white;
@@ -83,24 +48,30 @@
 .categoriesFlex div {
   font-size: 1.1rem;
   font-weight: bold;
-  color:;
 }
 .outras {
   background-color: #2a2a2a;
   font-size: 12px;
-  padding: 1rem 2rem 3rem;
+  padding: 1rem 1rem;
   border-radius: 20px;
-  max-width: 300px;
+  max-width: 350px;
+  margin-right: 3rem;
 }
 .mais {
   flex: 1;
-}
-.ulOutras {
 }
 .ulOutras,
 .ulMais {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.ulOutras {
+  max-width: 180px;
+}
+.ulMais {
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
 .ulMais li,
@@ -156,31 +127,11 @@
   text-decoration: none;
   color: white;
 }
-.link:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-@media screen and (max-width: 789px) {
-  .container {
-    width: 100%;
-    border-radius: 0px;
-    top: 0;
-    left: 0;
-  }
-
-  .inicio {
+@media screen and (max-width: 1319px) {
+  .dropDownTrigger {
     display: none;
   }
-  .Pilates {
-    padding-left: 0;
-  }
-  .nav ul li {
-    margin: 0;
-  }
-  .sobre {
-    padding-right: 1rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  .categorias {
-    padding-left: 1rem;
+  .categoryTitle {
+    display: none;
   }
 }

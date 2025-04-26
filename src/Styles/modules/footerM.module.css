@@ -1,0 +1,67 @@
+@media (min-width: 701px) {
+  .container {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .container {
+    display: static;
+    color: white;
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 30px;
+    background-color: black;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.15);
+  }
+  .pilates {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+  }
+  .element1 {
+    text-align: center;
+  }
+  .element1 div {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    text-align: left;
+    padding: 0;
+
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .line {
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 0.6px;
+    display: inline-block;
+    width: 60%;
+    position: relative;
+    top: 0.65rem;
+    margin: 0;
+  }
+  .element1 ul li {
+    margin: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .element1 ul {
+    list-style-type: none;
+    white-space: nowrap;
+  }
+  .copy {
+    font-size: 9px;
+
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+  }
+}

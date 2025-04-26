@@ -9,7 +9,6 @@
 
   color: white;
   z-index: 0;
-  margin-bottom: 20rem;
   padding-bottom: 2rem;
 }
 .container::after {
@@ -43,4 +42,8 @@
 }
 .raphaFoto {
   border-radius: 200px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
 }

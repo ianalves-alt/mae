@@ -1,0 +1,61 @@
+.title {
+  font-size: 5rem;
+  margin-top: 13rem;
+}
+.container {
+  margin: 5rem;
+}
+.texto {
+  max-width: 60vw;
+}
+
+.title2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.texto2 {
+  text-align: center;
+}
+
+.beneficiosUl {
+  list-style-type: none;
+  padding-left: 1rem;
+}
+.beneficiosUl li {
+}
+.beneficios {
+  margin-top: 3rem;
+}
+.title3 {
+  text-align: left;
+  font-size: 3rem;
+}
+
+.texto3 {
+  max-width: 700px;
+  text-align: left;
+}
+.contato {
+  margin-top: 3rem;
+}
+.contato div span {
+  font-size: 1rem;
+  font-weight: thin;
+}
+
+.whatsapp {
+  position: relative;
+  top: 5px;
+  margin-left: 1rem;
+}
+.containerBenef {
+  display: flex;
+  gap: 2rem;
+}
+.benefWrap ul {
+  border-right: 1px solid black;
+  padding-right: 3rem;
+  margin-top: 1rem;
+}

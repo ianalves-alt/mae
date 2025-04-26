@@ -9,3 +9,7 @@ body {
   font-family: "Inter";
   min-height: 100vh;
 }
+html,
+body {
+  scroll-behavior: smooth;
+}

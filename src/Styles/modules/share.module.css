@@ -1,0 +1,36 @@
+.whatsapp,
+.twitter {
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  height: 30px;
+  padding: 0.7rem;
+  margin-left: 1rem;
+}
+.whatsapp1,
+.twitter1 {
+  height: 30px;
+  width: 20px;
+  position: relative;
+  top: 7px;
+}
+.shareContainer {
+  margin-top: 4rem;
+}
+.shareContainer p {
+  font-size: 1.1rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 0.5rem;
+}
+.whatsapp:hover,
+.twitter:hover {
+  color: black;
+  border: 1px solid black;
+}
+
+.facebook1 {
+  height: 25px;
+  width: 20px;
+  position: relative;
+  top: 5px;
+}

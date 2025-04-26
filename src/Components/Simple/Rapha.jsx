@@ -1,10 +1,14 @@
 import style from "../../Styles/modules/rapha.module.css";
 import Image from "next/image";
-export default function Rapha() {
+export default function Rapha({ text }) {
   return (
     <>
       <div className={style.container}>
-        <div className={style.rapha}>Raphaella Alves</div>
+        <div className={style.flex}>
+          <div className={style.rapha}>{text}</div>
+          <div className={style.rapha}>Raphaella Alves</div>
+        </div>
+
         <div className={style.flexContainer}>
           <Image
             width={300}
