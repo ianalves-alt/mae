@@ -19,7 +19,7 @@ export default function PostCard({ post }) {
             alt={post.title}
             width={455}
             height={306}
-            className={style.image}
+            className={styles.image}
           />
           <div className={styles.authorInfo}>
             Raphaella Alves • {new Date(post.publishedAt).toLocaleDateString()}

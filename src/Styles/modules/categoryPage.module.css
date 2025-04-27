@@ -43,6 +43,10 @@
   width: 100%;
   object-fit: cover;
 }
+.image {
+  max-width: 455px;
+  max-height: 306px;
+}
 
 .postContent {
   padding: 16px;
@@ -123,4 +127,11 @@
   transition: transform 0.2s ease;
 }
 .desc {
+}
+
+@media screen and (max-width: 750px) {
+  .image {
+    width: 325px;
+    height: 200px;
+  }
 }

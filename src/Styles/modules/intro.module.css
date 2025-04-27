@@ -394,6 +394,11 @@
     width: 430px;
     height: 300px;
   }
+  .imageL,
+  .imageWrapperL {
+    width: 330px;
+    height: 200px;
+  }
 }
 @media (max-width: 514px) {
   .mainImage {
@@ -624,7 +629,7 @@
   }
   .imageL,
   .imageWrapperL {
-    width: 200px;
+    width: 180px;
     height: 120px;
   }
   .cardContainerL {
