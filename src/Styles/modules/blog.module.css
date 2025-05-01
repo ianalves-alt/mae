@@ -242,9 +242,9 @@
 }
 @media screen and (max-width: 820px) {
   .container h1{
-    font-size: 1.5rem;
+    font-size: 1.20rem;
 
-    min-width: 300px;
+    max-width: 300px;
     margin-top: 1rem;
     margin-left: 0.5rem;
 
@@ -258,8 +258,8 @@
     
   }
 .mainImage {
-    width: 370px;
-    height: 260px;
+    width: 300px;
+    height: 190px;
     margin: 0;
     margin-bottom: 5rem;
     padding: 0;
@@ -276,16 +276,15 @@
   } 
 
  .toc {
-    position: static !important;  /* ditch the sticky */
-    top: auto !important;         /* no top offset */
-    align-self: auto;             /* flow normally */
-    max-height: none;             /* let it expand */
-    overflow: visible;            /* no scrolling */
-    width: 100%;                  /* full width */
-    margin: 1rem 0;               /* spacing before/after */
-    background-color: #f9f9f9;    /* keep your bg */
-    padding: 1rem;                /* add some padding */
-  } 
+    position: static ;  
+    top: auto !important;         
+    align-self: auto;             
+    max-height: none;             
+    overflow: visible;            
+    width: 100%;                  
+    margin: 1rem 0;               
+    background-color: #f9f9f9;    
+    padding: 1rem;  } 
   .postContent{
     flex-direction: column;
     margin: 1rem;

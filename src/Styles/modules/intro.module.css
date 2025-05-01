@@ -495,24 +495,6 @@
 .cardContainerL {
   composes: cardContainer;
 }
-.ulL {
-  composes: ul;
-}
-.cardContainerliL {
-  composes: cardContainerli;
-}
-.authorInfoL {
-  composes: authorInfo;
-}
-.categoryL {
-  composes: category;
-}
-.postTitleL {
-  composes: postTitle;
-}
-.descL {
-  composes: desc;
-}
 
 @media (max-width: 360px) {
   .mainImage {
