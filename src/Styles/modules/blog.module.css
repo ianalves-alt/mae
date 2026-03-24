@@ -221,7 +221,7 @@
   .category {
     margin-bottom: 0.7rem;
     display: inline-block;
-    white-space: nowrap:
+    white-space: nowrap;
   }
   .flexContainer{
     flex-direction: column-reverse;
